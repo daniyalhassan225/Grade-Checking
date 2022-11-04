@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade Checking</title>
+</head>
+<body>
+    <h1>Grade Checking</h1>
+    <form onsubmit="checkGrade(); return false">
+
+     Enter your Total marks:
+     <input type="number" id="input1" min="1" required>
+     <br>
+     <br>
+     Enter your Obtained marks:
+     <input type="number" id="input2" min="0" required>  
+    <br>
+    <br>
+    <button type="submit">checkGrade</button>
+    
+</form>
+
+<h1 id="result"></h1>
+<!-- <P id="validationText" style="color: rgb(182, 0, 0);"></P> -->
+<h2 id="validationText"></h2>
+
+<script>
+    function checkGrade() {
+        let totalMarks = +document.querySelector("#input1").value;
+        console.log("totalMarks", totalMarks);
+
+
+        let ObtainedMarks = +document.querySelector("#input2").value;
+        console.log("ObtainedMarks", ObtainedMarks);
+    
+        let result = "";
+        let text = "";
+
+        if(totalMarks < ObtainedMarks) {
+            text =  "Obtained Marks is not Graeter than Total Marks"
+        }
+
+        if(text){
+            document.querySelector("#validationText").innertext = text;
+        }
+
+        else{
+            document.querySelector("#validationText").innertext = "";
+        }
+
+        let Percent = (ObtainedMarks/totalMarks)*100;
+        console.log("Percent", Percent)
+        if(Percent < 40){
+            result = "Fail"
+        }
+
+        else if(Percent >= 40  &&Percent <50){
+            result ="Grade D"
+        }
+        else if(Percent >= 50  &&Percent <60){
+            result ="Grade C"
+        }
+        else if(Percent >= 60  &&Percent <70){
+            result ="Grade B"
+        }
+        else if(Percent >= 70  &&Percent <80){
+            result ="Grade A"
+        }
+        else if(Percent >= 80  &&Percent <90){
+            result ="GradeA1"
+        }
+        else{
+            result = "GradeA1+"
+        }
+        document.querySelector('#result').innerText = `${Percent}% - ${result}`;
+    
+    
+    
+    
+    
+    
+    }
+
+
+
+
+</script>
+
+</body>
+</html>
