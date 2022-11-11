@@ -25,6 +25,7 @@
 <h1 id="result"></h1>
 <!-- <P id="validationText" style="color: rgb(182, 0, 0);"></P> -->
 <h2 id="validationText"></h2>
+<h4 id="errorMSG"></h4>
 
 <script>
     function checkGrade() {
@@ -34,20 +35,24 @@
 
         let ObtainedMarks = +document.querySelector("#input2").value;
         console.log("ObtainedMarks", ObtainedMarks);
+
+        
     
         let result = "";
         let text = "";
 
+
         if(totalMarks < ObtainedMarks) {
-            text =  "Obtained Marks is not Graeter than Total Marks"
+            document.querySelector("#errorMSG").innerHTML = `Obtained Marks is not Graeter than Total Marks`
+            return;
         }
 
         if(text){
-            document.querySelector("#validationText").innertext = text;
+            document.querySelector("#validationText").innerHTML;
         }
 
         else{
-            document.querySelector("#validationText").innertext = "";
+            document.querySelector("#validationText").innerHTML;
         }
 
         let Percent = (ObtainedMarks/totalMarks)*100;
